@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour {
 
+    public float angularDrag;
+
     public float speed;
 
     private Rigidbody rb;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         rb = GetComponent<Rigidbody>();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    }
+
+    // Update is called once per frame
+    void Update() {
 
         var moveHorizontal = Input.GetAxis("Horizontal");
 
@@ -26,6 +29,6 @@ public class PlayerMouvement : MonoBehaviour {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertival);
 
         rb.AddForce(movement * speed);
-
+        rb.angularDrag = angularDrag;
     }
 }

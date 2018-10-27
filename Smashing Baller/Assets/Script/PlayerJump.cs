@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour {
 
+    private bool isGrounded;
 
     [Range(1, 10)]
     public float jumpVelocity;
 
     public float fallMultiplier = 2.5f;
 
-    public float lowJumpMultiplier = 2f;
+    public float lowJumpMultiplier = 2.3f;
+
+    public bool isSlamming;
 
 
     Rigidbody rb;
@@ -24,11 +27,39 @@ public class PlayerJump : MonoBehaviour {
     void Update() {
 
 
-        if (Input.GetButtonDown("Jump")) {
+        jumpStatus();
+
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+
+        
+        if (collision.gameObject.tag == "Ground") {
+            isGrounded = true;
+
+        }
+
+    }
+
+
+    private void OnCollisionExit(Collision collision) {
+
+        if (collision.gameObject.tag == "Ground") {
+            isGrounded = false;
+        }
+    }
+
+
+
+    private void jumpStatus() {
+
+
+        if (Input.GetButtonDown("Jump") && isGrounded) {
 
             GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
         }
 
+        // added gravity for smoother jump
         if (rb.velocity.y < 0) {
 
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
@@ -37,10 +68,10 @@ public class PlayerJump : MonoBehaviour {
 
         }
 
-        else if (rb.velocity.y>0 && !Input.GetButton("Jump")) {
+        // long jump (if the player holds the jump button)
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
 
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-
     }
 }
