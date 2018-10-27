@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour {
 
+    private float distToGround = 0.5f;
+
     public float angularDrag;
 
     public float speed;
@@ -32,18 +34,23 @@ public class PlayerMouvement : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertival);
 
-        if (PlayerJump.isGrounded) {
+        if (isGrounded()) {
             rb.AddForce(movement * speed);
             rb.angularDrag = angularDrag;
         }
 
 
-        else if (!PlayerJump.isGrounded) {
+        else if (!isGrounded()) {
             rb.AddForce(movement * airspeed);
             rb.angularDrag = angularDrag;
 
         }
 
 
+    }
+
+    private bool isGrounded() {
+
+        return Physics.Raycast(transform.position, Vector3.down, distToGround);
     }
 }
