@@ -8,7 +8,9 @@ public class PlayerMouvement : MonoBehaviour {
 
     public float speed;
 
-  
+    public float airspeed;
+
+
 
     private Rigidbody rb;
 
@@ -30,7 +32,18 @@ public class PlayerMouvement : MonoBehaviour {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertival);
 
-        rb.AddForce(movement * speed);
-        rb.angularDrag = angularDrag;
+        if (PlayerJump.isGrounded) {
+            rb.AddForce(movement * speed);
+            rb.angularDrag = angularDrag;
+        }
+
+
+        else if (!PlayerJump.isGrounded) {
+            rb.AddForce(movement * airspeed);
+            rb.angularDrag = angularDrag;
+
+        }
+
+
     }
 }

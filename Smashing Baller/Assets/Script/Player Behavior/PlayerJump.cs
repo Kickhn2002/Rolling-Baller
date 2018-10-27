@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour {
 
-    private bool isGrounded;
+    public static bool isGrounded;
 
     [Range(1, 10)]
     public float jumpVelocity;
@@ -29,7 +29,7 @@ public class PlayerJump : MonoBehaviour {
     void Update() {
 
 
-        jumpStatus();
+        jump();
 
     }
 
@@ -54,7 +54,7 @@ public class PlayerJump : MonoBehaviour {
 
 
 
-    private void jumpStatus() {
+    private void jump() {
 
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
