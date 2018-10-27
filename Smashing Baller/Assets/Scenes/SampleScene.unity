@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502e2fb791f24a479af8a270ec824f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 10
+  jumpVelocity: 7
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   isSlamming: 0
@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893aaff4660f6cd439f361e04e647b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularDrag: 1.5
+  angularDrag: 5
   speed: 10
-  airspeed: 5
+  airspeed: 10
 --- !u!1001 &399889411
 Prefab:
   m_ObjectHideFlags: 0
