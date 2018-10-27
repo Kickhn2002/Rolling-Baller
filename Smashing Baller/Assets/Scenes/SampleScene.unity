@@ -232,7 +232,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4222114234068886, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.34
+      value: 17.39
       objectReference: {fileID: 0}
     - target: {fileID: 4222114234068886, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
       propertyPath: m_LocalPosition.z
@@ -273,7 +273,26 @@ Prefab:
       propertyPath: levelComplete
       value: 
       objectReference: {fileID: 1729666566}
-    m_RemovedComponents: []
+    - target: {fileID: 136422238000988042, guid: 9d958e919e58e534480b9537d1b9b515,
+        type: 2}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 136422238000988042, guid: 9d958e919e58e534480b9537d1b9b515,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222114234068886, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222114234068886, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 136422238000988042, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 9d958e919e58e534480b9537d1b9b515, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &534669902
@@ -666,6 +685,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463017896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1182410624829986, guid: 9d958e919e58e534480b9537d1b9b515,
+    type: 2}
+  m_PrefabInternal: {fileID: 399889411}
+--- !u!65 &1463017897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463017896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &1548934660
 Prefab:
   m_ObjectHideFlags: 0
