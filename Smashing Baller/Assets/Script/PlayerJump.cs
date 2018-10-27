@@ -15,6 +15,8 @@ public class PlayerJump : MonoBehaviour {
 
     public bool isSlamming;
 
+    public float slamSpeed;
+
 
     Rigidbody rb;
     // Use this for initialization
@@ -36,6 +38,7 @@ public class PlayerJump : MonoBehaviour {
         
         if (collision.gameObject.tag == "Ground") {
             isGrounded = true;
+            isSlamming = false;
 
         }
 
@@ -56,7 +59,7 @@ public class PlayerJump : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
 
-            GetComponent<Rigidbody>().velocity = Vector3.up * jumpVelocity;
+            rb.velocity = Vector3.up * jumpVelocity;
         }
 
         // added gravity for smoother jump
@@ -73,5 +76,13 @@ public class PlayerJump : MonoBehaviour {
 
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+
+        if (!isGrounded && Input.GetButton("Slam")) {
+
+            rb.velocity = new Vector3(0, slamSpeed, 0);
+            
+        }
     }
+
+
 }
