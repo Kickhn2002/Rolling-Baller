@@ -8,6 +8,8 @@ public class PlayerMouvement : MonoBehaviour {
 
     public float speed;
 
+  
+
     private Rigidbody rb;
 
     // Use this for initialization
