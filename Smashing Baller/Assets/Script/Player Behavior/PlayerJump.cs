@@ -9,9 +9,9 @@ public class PlayerJump : MonoBehaviour {
     [Range(1, 10)]
     public float jumpVelocity;
 
-    public float fallMultiplier = 2.5f;
+    public float fallMultiplier = 0.05f;
 
-    public float lowJumpMultiplier = 2.3f;
+    public float lowJumpMultiplier = 0.07f;
 
     public bool isSlamming;
 
@@ -49,7 +49,7 @@ public class PlayerJump : MonoBehaviour {
         // added gravity for smoother jump
         if (rb.velocity.y < 0) {
 
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier ) * Time.deltaTime;
 
 
 
@@ -58,7 +58,7 @@ public class PlayerJump : MonoBehaviour {
         // long jump (if the player holds the jump button)
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
 
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier) * Time.deltaTime;
         }
 
         if (!isGrounded() && Input.GetButton("Slam")) {
