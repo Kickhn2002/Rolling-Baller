@@ -5,25 +5,32 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour {
 
     private float distToGround = 0.8f;
+    private float gravityScale = 1.0f;
+    private float globalGravity = -9.81f;
 
-    [Range(1, 10)]
+    [Range(1, 50)]
     public float jumpVelocity;
 
     public float fallMultiplier = 0.05f;
 
     public float lowJumpMultiplier = 0.07f;
-    public bool isGroundeds;
 
+    bool isGrounded;
+    bool jumpRequest;
+    bool slamRequest;
+
+    public bool test;
 
 
     public float slamSpeed;
-   
-
 
     Rigidbody rb;
+
+
     // Use this for initialization
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
 
     }
 
@@ -31,27 +38,66 @@ public class PlayerJump : MonoBehaviour {
     void Update() {
 
 
-        jump();
+        getJumpRequest();
+        getGroundedRequest();
+        getSlamRequest();
+
+    }
+
+    private void FixedUpdate() {
+
+        if (slamRequest)
+            Slam();
+
+        else
+            Jump();
 
     }
 
 
 
+    private void Slam() {
+        if (slamRequest) {
+
+            rb.velocity = new Vector3(0, -slamSpeed, 0);
+
+        }
+
+
+    }
 
 
 
-    private void jump() {
+    // check if the player wants to jump
+    private void getJumpRequest() {
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded()) {
+        if (Input.GetButtonDown("Jump") && isGrounded) {
 
-            rb.velocity = Vector3.up * jumpVelocity;
+            jumpRequest = true;
+        }
+
+    }
+
+
+    private void Jump() {
+
+
+
+
+
+        if (jumpRequest) {
+            //  rb.velocity = Vector3.up * jumpVelocity;
+            rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+            jumpRequest = false;
         }
 
         // added gravity for smoother jump
         if (rb.velocity.y < 0) {
 
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier ) * Time.deltaTime;
+            test = rb.velocity.y < 0;
+            Vector3 gravity = globalGravity * fallMultiplier * Vector3.up;
+            rb.AddForce(gravity, ForceMode.Acceleration);
 
 
 
@@ -59,23 +105,29 @@ public class PlayerJump : MonoBehaviour {
 
         // long jump (if the player holds the jump button)
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
+            Vector3 gravity = globalGravity * lowJumpMultiplier * Vector3.up;
 
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier) * Time.deltaTime;
+            rb.AddForce(gravity, ForceMode.Acceleration);
         }
 
-        if (!isGrounded() && Input.GetButton("Slam")) {
-
-            rb.velocity = new Vector3(0, -slamSpeed, 0);
-            
+        else {
+            Vector3 gravity = globalGravity * Vector3.up;
+            rb.AddForce(gravity, ForceMode.Acceleration);
         }
+    }
+
+    private void getSlamRequest() {
+
+        slamRequest = (!isGrounded && Input.GetButton("Slam"));
+
+
     }
 
 
 
-    private bool isGrounded() {
+    private void getGroundedRequest() {
 
-        isGroundeds = Physics.Raycast(transform.position, Vector3.down, distToGround); 
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, distToGround);
 
-        return Physics.Raycast(transform.position, Vector3.down, distToGround);
     }
 }

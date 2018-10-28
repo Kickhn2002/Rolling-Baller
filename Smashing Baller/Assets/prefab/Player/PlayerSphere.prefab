@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893aaff4660f6cd439f361e04e647b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularDrag: 5
+  angularDrag: 3
   speed: 5
   airspeed: 5
 --- !u!114 &114550121538155568
@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502e2fb791f24a479af8a270ec824f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 6.33
+  jumpVelocity: 10
   fallMultiplier: 0.05
   lowJumpMultiplier: 0.07
-  slamSpeed: 5
+  isGroundeds: 0
+  slamSpeed: 10
 --- !u!135 &135140603363403518
 SphereCollider:
   m_ObjectHideFlags: 1

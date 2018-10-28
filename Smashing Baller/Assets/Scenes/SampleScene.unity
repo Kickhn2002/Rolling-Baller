@@ -530,6 +530,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114112558031270266, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610,
+        type: 2}
+      propertyPath: angularDrag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114550121538155568, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610,
+        type: 2}
+      propertyPath: fallMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114550121538155568, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610,
+        type: 2}
+      propertyPath: lowJumpMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114550121538155568, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610,
+        type: 2}
+      propertyPath: jumpVelocity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114550121538155568, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610,
+        type: 2}
+      propertyPath: slamSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f1cca449c2d8e4e8f9d5b40b6c0610, type: 2}
   m_IsPrefabAsset: 0
