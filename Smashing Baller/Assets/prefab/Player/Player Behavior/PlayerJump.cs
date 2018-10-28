@@ -19,7 +19,7 @@ public class PlayerJump : MonoBehaviour {
     bool jumpRequest;
     bool slamRequest;
 
-    public bool test;
+  
 
 
     public float slamSpeed;
@@ -95,7 +95,7 @@ public class PlayerJump : MonoBehaviour {
         // added gravity for smoother jump
         if (rb.velocity.y < 0) {
 
-            test = rb.velocity.y < 0;
+     
             Vector3 gravity = globalGravity * fallMultiplier * Vector3.up;
             rb.AddForce(gravity, ForceMode.Acceleration);
 

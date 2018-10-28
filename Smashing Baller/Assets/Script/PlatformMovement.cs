@@ -61,24 +61,7 @@ public class PlatformMovement : MonoBehaviour {
     }
 
     
-    //private void OnCollisionEnter(Collision collision) {
 
-    //    // the players moves with the platform
-    //    if (collision.gameObject.tag == "Player") {
-   
-    //        collision.collider.transform.SetParent(transform);
-
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision) {
-        
-    //    // the player does not move with the platform after exiting the platform
-    //    if(collision.gameObject.tag == "Player") {
-    //        collision.collider.transform.SetParent(null);
-
-    //    }
-    //}
 
 
 }

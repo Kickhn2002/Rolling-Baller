@@ -128,10 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpVelocity: 10
-  fallMultiplier: 0.05
-  lowJumpMultiplier: 0.07
-  isGroundeds: 0
-  slamSpeed: 10
+  fallMultiplier: 3
+  lowJumpMultiplier: 1
+  slamSpeed: 30
 --- !u!135 &135140603363403518
 SphereCollider:
   m_ObjectHideFlags: 1
