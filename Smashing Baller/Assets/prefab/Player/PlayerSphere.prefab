@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 23439051415950532}
   - component: {fileID: 135140603363403518}
   - component: {fileID: 54404202853300782}
+  - component: {fileID: 114550121538155568}
+  - component: {fileID: 114112558031270266}
   m_Layer: 0
   m_Name: PlayerSphere
   m_TagString: Player
@@ -100,6 +102,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114112558031270266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626077946103698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893aaff4660f6cd439f361e04e647b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularDrag: 5
+  speed: 5
+  airspeed: 5
+--- !u!114 &114550121538155568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626077946103698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1502e2fb791f24a479af8a270ec824f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpVelocity: 6.33
+  fallMultiplier: 0.05
+  lowJumpMultiplier: 0.07
+  slamSpeed: 5
 --- !u!135 &135140603363403518
 SphereCollider:
   m_ObjectHideFlags: 1

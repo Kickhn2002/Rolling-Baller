@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour {
 
-    private float distToGround = 0.5f;
+    private float distToGround = 0.8f;
 
     [Range(1, 10)]
     public float jumpVelocity;
@@ -12,10 +12,12 @@ public class PlayerJump : MonoBehaviour {
     public float fallMultiplier = 0.05f;
 
     public float lowJumpMultiplier = 0.07f;
+    public bool isGroundeds;
 
 
 
     public float slamSpeed;
+   
 
 
     Rigidbody rb;
@@ -63,7 +65,7 @@ public class PlayerJump : MonoBehaviour {
 
         if (!isGrounded() && Input.GetButton("Slam")) {
 
-            rb.velocity = new Vector3(0, slamSpeed, 0);
+            rb.velocity = new Vector3(0, -slamSpeed, 0);
             
         }
     }
@@ -71,6 +73,8 @@ public class PlayerJump : MonoBehaviour {
 
 
     private bool isGrounded() {
+
+        isGroundeds = Physics.Raycast(transform.position, Vector3.down, distToGround); 
 
         return Physics.Raycast(transform.position, Vector3.down, distToGround);
     }

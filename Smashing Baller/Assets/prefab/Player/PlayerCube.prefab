@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65678489584806518}
   - component: {fileID: 54771542674368926}
   - component: {fileID: 114611623067551228}
+  - component: {fileID: 114727663339852534}
   m_Layer: 0
   m_Name: PlayerCube
   m_TagString: Untagged
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+--- !u!114 &114727663339852534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1009391185172366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1502e2fb791f24a479af8a270ec824f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpVelocity: 8.38
+  fallMultiplier: 0.05
+  lowJumpMultiplier: 0.07
+  slamSpeed: 5
