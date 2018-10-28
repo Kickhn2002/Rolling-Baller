@@ -60,5 +60,25 @@ public class PlatformMovement : MonoBehaviour {
         }
     }
 
+    
+    private void OnCollisionEnter(Collision collision) {
+
+        // the players moves with the platform
+        if (collision.gameObject.tag == "Player") {
+            Vector3 originalScale = collision.transform.lossyScale;
+            collision.collider.transform.SetParent(transform);
+            collision.transform.localScale = originalScale;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision) {
+        
+        // the player does not move with the platform after exiting the platform
+        if(collision.gameObject.tag == "Player") {
+            collision.collider.transform.SetParent(null);
+
+        }
+    }
+
 
 }

@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 4211480491576686}
-  repeatable: 0
+  repeatable: 1
   speed: 0.4
   duration: 3
 --- !u!135 &135097075081086710
