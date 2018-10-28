@@ -13,7 +13,7 @@ public class PlayerJump : MonoBehaviour {
 
     public float lowJumpMultiplier = 0.07f;
 
-    public bool isSlamming;
+
 
     public float slamSpeed;
 
