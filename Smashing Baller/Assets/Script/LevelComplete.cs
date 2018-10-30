@@ -9,7 +9,7 @@ public class LevelComplete : MonoBehaviour {
     public Text levelComplete;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 
         levelComplete.text = "";
 		
@@ -21,9 +21,9 @@ public class LevelComplete : MonoBehaviour {
 	}
 
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnTriggerEnter(Collider collider) {
 
-        if (collision.gameObject.tag == ("Player")) {
+        if (collider.gameObject.tag == ("Player")) {
 
             levelComplete.text = "you win";
 

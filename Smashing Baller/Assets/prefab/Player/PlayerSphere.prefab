@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularDrag: 3
-  speed: 5
-  airspeed: 5
+  speed: 30
+  airspeed: 0.1
 --- !u!114 &114550121538155568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502e2fb791f24a479af8a270ec824f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 10
+  jumpVelocity: 7
   fallMultiplier: 3
   lowJumpMultiplier: 1
   slamSpeed: 30
