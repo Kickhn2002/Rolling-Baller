@@ -4,22 +4,73 @@ using UnityEngine;
 
 public class PlayerMouvementCube : MonoBehaviour {
 
-    public float movementSpeed = 10.0f;
+    public float inputDelay = 0.1f;
+    public float fowardVel = 12;
+    public float rotateVel = 100;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    Quaternion targetRotation;
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime* movementSpeed;
-        var y = Input.GetAxis("Vertical") * Time.deltaTime* movementSpeed;
+    Rigidbody rBody;
+    float fowardInput, turnInput;
 
-        transform.Translate(x, 0, y);
 
-		
-	}
+    public Quaternion TargetRotation {
+
+        get { return targetRotation; }
+    }
+
+    void Start() {
+
+        targetRotation = transform.rotation;
+        if (GetComponent<Rigidbody>())
+            rBody = GetComponent<Rigidbody>();
+
+        else
+            Debug.LogError("The character needs a rigidbody");
+    }
+
+    void GetInput() {
+        fowardInput = Input.GetAxis("Vertical");
+        turnInput = Input.GetAxis("Horizontal");
+
+    }
+
+    private void Update() {
+
+        GetInput();
+        Turn();
+        
+    }
+
+    private void FixedUpdate() {
+        Run();
+        Turn();
+    }
+
+    void Run() {
+        if (Mathf.Abs(fowardInput) > inputDelay) {
+
+            //move
+            rBody.velocity = transform.forward * fowardInput * fowardVel;
+        }
+
+        else {
+           
+            rBody.velocity = new Vector3(0, rBody.velocity.y, 0);
+        }
+
+
+
+
+
+    }
+
+    void Turn() {
+
+        targetRotation *= Quaternion.AngleAxis(rotateVel * turnInput * Time.deltaTime, Vector3.up);
+        transform.rotation = targetRotation;
+
+    }
+
 
 }
