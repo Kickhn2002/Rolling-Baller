@@ -4,53 +4,75 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour {
 
-    private float distToGround = 0.5f;
+    public float inputDelay = 0.1f;
+    public float fowardVel = 12;
+    public float rotateVel = 100;
 
-    public float angularDrag;
+     Quaternion targetRotation;
 
-    public float speed;
-
-    public float airspeed;
-
+    Rigidbody rBody;
+    float fowardInput, turnInput;
 
 
-    private Rigidbody rb;
+    public Quaternion TargetRotation {
 
-    // Use this for initialization
+        get { return targetRotation; }
+    }
+
     void Start() {
-        rb = GetComponent<Rigidbody>();
 
+        targetRotation = transform.rotation;
+        if (GetComponent<Rigidbody>())
+            rBody = GetComponent<Rigidbody>();
+
+        else
+            Debug.LogError("The character needs a rigidbody");
+    }
+
+    void GetInput() {
+        fowardInput = Input.GetAxis("Vertical");
+        turnInput = Input.GetAxis("Horizontal");
 
     }
 
-    // Update is called once per frame
-    void Update() {
+    private void Update() {
 
-        var moveHorizontal = Input.GetAxis("Horizontal");
+   
+        
+    }
 
+    private void FixedUpdate() {
+        GetInput();
+        Turn();
 
-        var moveVertival = Input.GetAxis("Vertical");
+        Run();
+        Turn();
+    }
 
+    void Run() {
+        if (Mathf.Abs(fowardInput) > inputDelay) {
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertival);
+            //move
+            rBody.velocity = transform.forward * fowardInput * fowardVel;
+        }
 
-        if (isGrounded()) {
-            rb.AddForce(movement * speed);
-            rb.angularDrag = angularDrag;
+        else {
+           
+            rBody.velocity = new Vector3(0, rBody.velocity.y, 0);
         }
 
 
-        else if (!isGrounded()) {
-            rb.AddForce(movement * airspeed);
-            rb.angularDrag = angularDrag;
 
-        }
 
 
     }
 
-    private bool isGrounded() {
+    void Turn() {
 
-        return Physics.Raycast(transform.position, Vector3.down, distToGround);
+        targetRotation *= Quaternion.AngleAxis(rotateVel * turnInput * Time.deltaTime, Vector3.up);
+        transform.rotation = targetRotation;
+
     }
+
+
 }

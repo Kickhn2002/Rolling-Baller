@@ -100,5 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef50c6743698044fa8638c6f9ce70ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  SmoothFactor: 1
+  target: {fileID: 4313755969536102, guid: f60c23bf0e9ed9f4992e31b5de2adef0, type: 2}
+  lookSmooth: 0.09
+  offsetFromTarget: {x: 0, y: 6, z: -8}
+  xTilt: 10

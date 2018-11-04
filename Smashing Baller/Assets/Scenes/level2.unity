@@ -342,6 +342,16 @@ Prefab:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 925044970}
+    - target: {fileID: 114882498462471056, guid: b43aea268fed51a4f8a0a1ea8673789f,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 925044970}
+    - target: {fileID: 114882498462471056, guid: b43aea268fed51a4f8a0a1ea8673789f,
+        type: 2}
+      propertyPath: offsetFromTarget.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
   m_IsPrefabAsset: 0

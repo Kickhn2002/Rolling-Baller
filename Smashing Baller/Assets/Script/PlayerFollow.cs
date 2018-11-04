@@ -4,34 +4,71 @@ using UnityEngine;
 
 public class PlayerFollow : MonoBehaviour {
 
-    public Transform playerTransform;
+    public Transform target;
 
-    private Vector3 cameraOffset;
+    public float lookSmooth = 0.09f;
 
+    public Vector3 offsetFromTarget = new Vector3(0, 6, -8);
 
-    [Range(0.0f, 1.0f)]
-    public float SmoothFactor = 0.5f;
-	// Use this for initialization
-	void Start () {
+    public float xTilt = 10;
 
-        cameraOffset = transform.position - playerTransform.position;
-		
-	}
+    Vector3 destination = Vector3.zero;
 
-    // Update is called once per frame
-    void Update() {
-    
-		
-	}
+    PlayerMouvement charController;
 
-     void LateUpdate(){
+    float rotateVel = 0;
 
-        Vector3 newPos = playerTransform.position + cameraOffset;
+    private void Start() {
+        SetCameraTarget(target);
 
-        transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
-        
+        }
+
+    void SetCameraTarget(Transform t) {
+
+        target = t;
+
+        if (target != null) {
+
+            if (target.GetComponent<PlayerMouvement>()) {
+
+                charController = target.GetComponent<PlayerMouvement>();
+            }
+
+            else
+                Debug.LogError("The camera's target needs a character ontroller");
+        }
+
+        else
+            Debug.LogError("Your camera needs a target");
+
     }
 
+    private void FixedUpdate() {
+        MoveToTarget();
+        LookAtTarget();
+
+    }
+
+    void MoveToTarget() {
+
+        destination = charController.TargetRotation * offsetFromTarget;
+        destination += target.position;
+        transform.position = destination;
+
+    }
+
+    void LookAtTarget() {
+
+        float eulerYAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, target.eulerAngles.y, ref rotateVel, lookSmooth);
+
+        transform.rotation = Quaternion.Euler(xTilt, eulerYAngle,0);
+
+    }
+
+
 }
+
+
+
 
 
