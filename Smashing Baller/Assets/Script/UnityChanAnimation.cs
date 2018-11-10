@@ -6,6 +6,9 @@ public class UnityChanAnimation : MonoBehaviour {
 
     public Animator anim;
 
+    private float inputH;
+    private float inputV;
+
     // Use this for initialization
     void Start() {
 
@@ -36,7 +39,12 @@ public class UnityChanAnimation : MonoBehaviour {
             anim.Play("WAIT04", -1, 0f);
         }
 
-   
+
+        inputH = Input.GetAxis("Horizontal");
+        inputV = Input.GetAxis("Vertical");
+
+        anim.SetFloat("inputH", inputH);
+        anim.SetFloat("inputV", inputV);
 
     }
 }
