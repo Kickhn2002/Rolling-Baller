@@ -196,7 +196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257079776068710, guid: 88e77b9eb514be74e880b7817f15feee, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114733823239234018, guid: 88e77b9eb514be74e880b7817f15feee,
         type: 2}
@@ -323,19 +323,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 717793867}
     m_Modifications:
     - target: {fileID: 4409989313043970, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.29
+      value: 0.19999993
       objectReference: {fileID: 0}
     - target: {fileID: 4409989313043970, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: 1.4399999
       objectReference: {fileID: 0}
     - target: {fileID: 4409989313043970, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5.54
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 4409989313043970, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -355,7 +355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4409989313043970, guid: b43aea268fed51a4f8a0a1ea8673789f, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114882498462471056, guid: b43aea268fed51a4f8a0a1ea8673789f,
         type: 2}
@@ -366,7 +366,7 @@ Prefab:
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 717793867}
     - target: {fileID: 114882498462471056, guid: b43aea268fed51a4f8a0a1ea8673789f,
         type: 2}
       propertyPath: offsetFromTarget.z
@@ -437,6 +437,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4363718825821618, guid: a5e777b8a5fb3e842aec255ccdc45047,
     type: 2}
   m_PrefabInternal: {fileID: 771877860}
+--- !u!4 &717793867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4257079776068710, guid: 88e77b9eb514be74e880b7817f15feee,
+    type: 2}
+  m_PrefabInternal: {fileID: 210632666}
 --- !u!1001 &771877860
 Prefab:
   m_ObjectHideFlags: 0
