@@ -14,7 +14,7 @@ public class PlayerFollow : MonoBehaviour {
 
     Vector3 destination = Vector3.zero;
 
-    PlayerMouvement charController;
+   // PlayerMouvement charController;
 
     float rotateVel = 0;
 
@@ -29,13 +29,13 @@ public class PlayerFollow : MonoBehaviour {
 
         if (target != null) {
 
-            if (target.GetComponent<PlayerMouvement>()) {
+          //  if (target.GetComponent<PlayerMouvement>()) {
 
-                charController = target.GetComponent<PlayerMouvement>();
-            }
+           //     charController = target.GetComponent<PlayerMouvement>();
+        //    }
 
-            else
-                Debug.LogError("The camera's target needs a character ontroller");
+         //   else
+              //  Debug.LogError("The camera's target needs a character ontroller");
         }
 
         else
@@ -51,7 +51,7 @@ public class PlayerFollow : MonoBehaviour {
 
     void MoveToTarget() {
 
-        destination = charController.TargetRotation * offsetFromTarget;
+     //   destination = charController.TargetRotation * offsetFromTarget;
         destination += target.position;
         transform.position = destination;
 

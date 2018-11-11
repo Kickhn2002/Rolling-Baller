@@ -8,20 +8,46 @@ public class UnityChanAnimation : MonoBehaviour {
 
     private float inputH;
     private float inputV;
+    private bool run;
 
     // Use this for initialization
     void Start() {
 
         anim = GetComponent<Animator>();
+        run = false;
 
     }
 
     // Update is called once per frame
     void Update() {
+        emotes();
+
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            run = true;
+        }
+
+        else {
+            run = false;
+        }
+
+        
+
+
+        inputH = Input.GetAxis("Horizontal");
+        inputV = Input.GetAxis("Vertical");
+
+        anim.SetFloat("inputH", inputH);
+        anim.SetFloat("inputV", inputV);
+        anim.SetBool("run", run);
+
+
+    }
+
+    private void emotes() {
 
         if (Input.GetKeyDown("1")) {
 
-            anim.Play("WAIT01", -1,0f);
+            anim.Play("WAIT01", -1, 0f);
         }
 
         if (Input.GetKeyDown("2")) {
@@ -38,13 +64,5 @@ public class UnityChanAnimation : MonoBehaviour {
 
             anim.Play("WAIT04", -1, 0f);
         }
-
-
-        inputH = Input.GetAxis("Horizontal");
-        inputV = Input.GetAxis("Vertical");
-
-        anim.SetFloat("inputH", inputH);
-        anim.SetFloat("inputV", inputV);
-
     }
 }
